@@ -1,6 +1,6 @@
 {
     "name": "davidcolquhoun/monitor-exceptions-laravel",
-    "description": "Lightweight exception monitoring for SilverStripe. Sends errors and exceptions from your app’s logger to the DataSmugglers monitoring API, where you can filter, search, and inspect them in a dashboard.",
+    "description": "Light weight PHP exception monitoring for Laravel.",
     "type": "library",
     "license": "proprietary",
     "autoload": {
