@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Monitor\Exceptions;
 
+use ErrorException;
 use Symfony\Component\HttpFoundation\Request;
 use Throwable;
-use ErrorException;
 
 class MonitorExceptionsClient
 {
@@ -45,7 +45,7 @@ class MonitorExceptionsClient
             $requestHeaders = [];
         } else {
             $httpRequest = Request::createFromGlobals();
-            $requestUrl = $httpRequest->getSchemeAndHttpHost() . $httpRequest->getPathInfo();
+            $requestUrl = $httpRequest->getSchemeAndHttpHost().$httpRequest->getPathInfo();
             $requestMethod = $httpRequest->getMethod();
             $requestHeaders = [];
             foreach ($httpRequest->headers->all() as $name => $values) {
@@ -59,7 +59,7 @@ class MonitorExceptionsClient
         $payload = [
             'environmentId' => $environmentId,
             'environmentKey' => $environmentKey,
-            'reportedByHandler' => 'laravel',
+            'reportedBy' => 'laravel',
             'errorSeverity' => $e instanceof ErrorException ? $e->getSeverity() : null,
             'exceptionClass' => $e::class,
             'errorMessage' => $e->getMessage(),
